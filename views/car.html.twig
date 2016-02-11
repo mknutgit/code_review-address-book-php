@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Car Dealership</title>
+  </head>
+  <body>
+    <h1>Find a Car!</h1>
+        <form class="" action="/car_form" method="post">
+            <label for="maxPrice">Maximum Price:</label>
+            <input type="number" name="maxPrice" id="maxPrice">
+
+            <label for="maxMileage">Maximum Mileage:</label>
+            <input type="number" name="maxMileage" id="maxMileage">
+
+            <button type="submit" name="button">Find Cars!</button>
+        </form>
+
+        <form action="/car_add">
+            <button name="button">Sell a car!</button>
+        </form>
+
+        <form action="/car_inventory">
+            <button name="button">See our entire Inventory</button>
+        </form>
+
+  </body>
+</html>

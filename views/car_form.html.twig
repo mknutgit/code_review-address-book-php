@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <title>Car Results</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Here are the cars for you!</h1>
+            <ul>
+                {% for car in cars %}
+                    <li>{{ car.getMake_Model }}</li>
+                    <li>{{ car.getPrice }}</li>
+                    <li>{{ car.getMiles }}</li>
+                    <li><img src="{{ car.getImage }}"></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </body>
+</html>
+
+
+<!-- <?php
+    if(empty($cars_matching_search)) {
+        echo "<h2> Sorry, no cars matched your search. </h2>";
+    } else {
+        foreach ($cars_matching_search as $car) {
+            $car_make = $car->getMake_Model();
+            $car_price = $car->getPrice();
+            $car_miles = $car->getMiles();
+            $car_image = $car->getImage();
+            echo "<li> $car_make </li>";
+            echo "<ul>";
+                echo "<li> $car_price </li>";
+                echo "<li> Miles: $car_miles </li>";
+                echo "<li> <img src='$car_image'> </li>";
+            echo "</ul>";
+        }
+    }
+?> -->
