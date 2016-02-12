@@ -17,19 +17,20 @@
     });
 
     $app->get("/contact_add", function() use ($app) {
-      return $app['twig']->render('contact.add.html.twig');
-  });
-
-    $app->post("/contact_created", function() use ($app) {
-      $new_contact= new Contact($_POST['contactName'], $_POST['contactAddress'], $_POST['contactPhone']);
-      $new_contact->save();
-      return $app['twig']->render('contact.created.html.twig', array('newContact' => $new_contact));
-  });
-
-    $app->get("/car_inventory", function() use ($app) {
-        return $app['twig']->render('car_inventory.html.twig', array('cars' => Car::getAll()));
+        return $app['twig']->render('contact.add.html.twig');
     });
 
-    return $app;
+    $app->post("/contact_created", function() use ($app) {
+        $new_contact= new Contact($_POST['contactName'], $_POST['contactAddress'], $_POST['contactPhone']);
+        $new_contact->save();
+        return $app['twig']->render('contact.created.html.twig', array('newContact' => $new_contact));
+    });
+
+    $app->post("/contact_delete", function() use ($app) {
+        Contact::deleteAll();
+        return $app['twig']->render('contact.deleted.html.twig');
+    });
+
+        return $app;
 
 ?>

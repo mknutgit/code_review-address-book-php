@@ -19,8 +19,8 @@
             <li>{{ contact.getPhone}}</li>
         {% endfor %}
 
-        <form action="/contact_delete">
-            <button>Delete all contacts!</button>
+        <form action="/contact_delete" method='post'>
+            <button type="submit">Delete all contacts!</button>
         </form>
 
     </body>
