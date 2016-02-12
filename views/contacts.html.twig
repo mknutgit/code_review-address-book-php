@@ -2,26 +2,33 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <meta charset="utf-8">
+       <link href="/css/styles.css" rel="stylesheet" media="all" type="text/css" charset="utf-8">
         <title>Contacts</title>
     </head>
     <body>
+      
+        <div class="jumbotron text-center" id="home">
 
-      <h1>Here's your address book:</h1>
+            <h3>Address Book</h3>
 
-      <form action="/contact_add">
-          <button>Add more contacts!</button>
-      </form>
+            <form action="/contact_add">
+                <button class="btn btn-sm btn-success">Click to add more contacts!</button>
+            </form>
+
+            <form action="/contact_delete" method='post'>
+                <button type="submit" class="btn btn-danger btn-sm">Delete all contacts!</button>
+            </form>
+        </div>
 
         {% for contact in contacts %}
-            <li>{{ contact.getName }}</li>
-            <li>{{ contact.getAddress }}</li>
-            <li>{{ contact.getPhone}}</li>
+            <h3>| {{ contact.getName }} |</h3>
+            <ul>
+                <li>{{ contact.getAddress }}</li>
+                <li>{{ contact.getPhone}}</li>
+            </ul>
         {% endfor %}
 
-        <form action="/contact_delete" method='post'>
-            <button type="submit">Delete all contacts!</button>
-        </form>
+
 
     </body>
 </html>

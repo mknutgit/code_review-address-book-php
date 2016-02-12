@@ -3,19 +3,25 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <meta charset="utf-8">
+    <link href="../css/styles.css" rel="stylesheet" type="text">
     <title>More Contacts</title>
   </head>
   <body>
-    <h1>Add the contact!</h1>
+    <h2>You found a friend!</h2>
+
         <form action="/contact_created" method="post">
+
             <label for="contactName">Name:</label>
             <input type="text" name="contactName" id="contactName">
+            <br>
 
             <label for="contactAddress">Address:</label>
             <input type="text" name="contactAddress" id="contactAddress">
+            <br>
 
             <label for="contactPhone">Phone:</label>
             <input type="text" name="contactPhone" id="contactPhone">
+            <br>
 
             <button type="submit" name="button">Add the contact!</button>
 
