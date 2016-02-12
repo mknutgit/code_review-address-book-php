@@ -4,25 +4,14 @@
         private $Name;
         private $Address;
         private $Phone;
-        private $Email;
 
-        function __construct($name, $address, $phone, $email)
+
+        function __construct($name, $address, $phone)
         {
             $this->name = $name;
             $this->address = $address;
             $this->phone = $phone;
-            $this->email = $email;
         }
-
-        // function worthBuying($max_price)
-        // {
-        //     return $this->price < ($max_price + 100);
-        // }
-        //
-        // function maxMileage($max_mileage)
-        // {
-        //     return $this->miles < $max_mileage;
-        // }
 
         function setName($contact_name)
         {
@@ -54,16 +43,6 @@
             return $this->phone;
         }
 
-        function setEmail($contact_email)
-        {
-            $this->email = $contact_email;
-        }
-
-        function getEmail()
-        {
-            return $this->email;
-        }
-
         function save()
         {
             array_push($_SESSION['list_of_contacts'], $this);
@@ -80,15 +59,4 @@
         }
 
     }
-
-
-
-    // $cars = array($porsche, $ford, $lexus, $mercedes);
-    //
-    // $cars_matching_search = array();
-    // foreach ($cars as $car) {
-    //     if ($car->worthBuying($_GET["price"]) && $car->maxMileage($_GET["mileage"])) {
-    //         array_push($cars_matching_search, $car);
-    //     }
-    // }
 ?>
