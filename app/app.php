@@ -13,28 +13,18 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('.html.twig');
+        return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
     });
 
-    $app->post("/car_form", function() use ($app) {
-        $cars_matching_search = array();
-        foreach ($_SESSION['list_of_cars'] as $car) {
-            if ($car->worthBuying($_POST['maxPrice']) && $car->maxMileage($_POST['maxMileage'])) {
-                array_push($cars_matching_search, $car);
-            }
-        }
-        return $app['twig']->render('car_form.html.twig', array('cars' => $cars_matching_search));
-    });
+    $app->get("/contact_add", function() use ($app) {
+      return $app['twig']->render('contact.add.html.twig');
+  });
 
-    $app->get("/car_add", function() use ($app) {
-        return $app['twig']->render('car_add.html.twig');
-    });
-
-    $app->post("/car_created", function() use ($app) {
-        $new_car = new Car($_POST['model'], $_POST['price'], $_POST['mileage'], $_POST['image']);
-        $new_car->save();
-        return $app['twig']->render('car_created.html.twig', array('newcar' => $new_car));
-    });
+    $app->post("/contact_created", function() use ($app) {
+      $new_contact= new Contact($_POST['contactName'], $_POST['contactAddress'], $_POST['contactPhone']);
+      $new_contact->save();
+      return $app['twig']->render('contact.created.html.twig', array('newContact' => $new_contact));
+  });
 
     $app->get("/car_inventory", function() use ($app) {
         return $app['twig']->render('car_inventory.html.twig', array('cars' => Car::getAll()));

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <title>Contacts</title>
+    </head>
+    <body>
+
+      <h1>Here's your address book:</h1>
+
+      <form action="/contact_add">
+          <button>Add more contacts!</button>
+      </form>
+
+        {% for contact in contacts %}
+            <li>{{ contact.getName }}</li>
+            <li>{{ contact.getAddress }}</li>
+            <li>{{ contact.getPhone}}</li>
+        {% endfor %}
+
+        <form action="/contact_delete">
+            <button>Delete all contacts!</button>
+        </form>
+
+    </body>
+</html>
